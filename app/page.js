@@ -5,6 +5,7 @@ import BestSellerDish from "@/components/section/BestSellerDish";
 import CustomerReview from "@/components/section/CustomerReview";
 import Team from "@/components/section/Team";
 import HowItWork from "@/components/section/HowItWork";
+import Blog from "@/components/section/Blog";
 
 export default function Home() {
     return (
@@ -18,6 +19,7 @@ export default function Home() {
                 <Team/>
             </div>
             <HowItWork/>
+            <Blog/>
         </main>
     );
 }

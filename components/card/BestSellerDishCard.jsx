@@ -18,7 +18,7 @@ export default function BestSellerDishCard({ item }) {
                     />
                 ))}
             </p>
-            <p className='text-[13.37px] md:text-[34px]'>${item?.price}</p>
+            <p className='text-[13.37px] md:text-[34px] font-semibold'>${item?.price}</p>
         </div>
     </div>
   )

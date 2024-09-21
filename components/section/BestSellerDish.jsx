@@ -44,7 +44,7 @@ export default function BestSellerDish() {
         <section className='max-w-7xl mx-auto px-[15px] space-y-[68px]'>
             <div className='text-center space-y-[18px]'>
                 <h1 className='text-[30px] md:text-[55px]'>Our best Seller Dishes</h1>
-                <p className='text-[16px] md:text-[30px] opacity-80'>
+                <p className='text-[16px] md:text-[30px] opacity-80 max-w-5xl mx-auto'>
                     Our fresh garden salad is a light and refreshing option. 
                     It features a mix of crisp lettuce, juicy tomatoe all tossed 
                     in your choice of dressing.
