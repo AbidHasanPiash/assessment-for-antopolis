@@ -50,68 +50,87 @@ export default function Hero() {
         <section className='w-screen h-screen flex flex-col'>
             <div className={`relative w-full h-full flex flex-grow ${activeBg} rounded-b-2xl overflow-hidden`}>
                 <div className={`absolute -top-32 -left-40 h-full aspect-square ${activeBgSecond} rounded-full`} />
-                <div className="z-10 p-10 text-white">
+                <div className="z-10 p-10 text-white space-y-32">
                     <h2 className="text-2xl">RESTAURANT</h2>
 
-                    {/* Controls */}
-                    <div className="z-10 p-10">
-                        <h1 className="text-4xl">BREAKFAST</h1>
-                        <p>
-                            Breakfast, often referred to as the 'most important meal of the day', provides essential nutrients to kick start our day. Eating a healthy breakfast can improve concentration and performance, boost physical endurance, and lower cholesterol levels.
-                        </p>
+                    <div className='grid grid-cols-2'>
+                        {/* Controls */}
+                        <div className="z-10 p-10 space-y-20">
+                            <div>
+                                <h1 className="text-6xl">BREAKFAST</h1>
+                                <p className='font-bold'>
+                                    Breakfast, often referred to as the 'most important meal of the day', provides essential nutrients to kick start our day. Eating a healthy breakfast can improve concentration and performance, boost physical endurance, and lower cholesterol levels.
+                                </p>
 
-                        {/* Buttons to change active item */}
-                        <div className="flex space-x-4 mt-6">
-                            {carousel.map((item, index) => (
-                                <button
-                                    key={item.id}
-                                    className={`w-16 h-16 md:w-32 md:h-32 focus:outline-none ${index === activeItem ? 'ring-4 ring-yellow-500' : ''}`}
-                                    onClick={() => setActiveItem(index)}
-                                >
-                                    <Image
-                                        src={item.img}
-                                        alt={item.id}
-                                        width={100}
-                                        height={100}
-                                        className="w-full h-full object-cover items-center justify-center"
-                                    />
-                                </button>
-                            ))}
+                                {/* Buttons to change active item */}
+                                <div className="flex space-x-4 mt-6">
+                                    {carousel.map((item, index) => (
+                                        <button
+                                            key={item.id}
+                                            className={`w-16 h-16 md:w-32 md:h-32 focus:outline-none`}
+                                            onClick={() => setActiveItem(index)}
+                                        >
+                                            <Image
+                                                src={item.img}
+                                                alt={item.id}
+                                                width={100}
+                                                height={100}
+                                                className="w-full h-full object-cover items-center justify-center"
+                                            />
+                                            {index === activeItem && (
+                                                <motion.div
+                                                    className="w-full h-1 mt-2 bg-white/70 rounded-full"
+                                                    initial={{ opacity: 0 }} // Start with opacity 0
+                                                    animate={{ opacity: 1 }}  // Animate to opacity 1 (fade in)
+                                                    exit={{ opacity: 0 }}     // When removed, fade out
+                                                    transition={{ duration: 0.5 }} // Duration of the animation
+                                                />
+                                            )}
+                                        </button>
+                                    ))}
+                                </div>
+                            </div>
+                            <div className='w-full flex items-center space-x-2 bg-white text-black p-2 rounded-full'>
+                                <img src="/icons/icons8-search-192 1.png" alt="search" className='w-8'/>
+                                <input type="search" placeholder='Search...' className='w-full bg-transparent outline-none'/>
+                            </div>
                         </div>
-                    </div>
 
-                    {/* Rotating Circle Container */}
-                    <div className={`absolute -bottom-72 -right-72 h-full aspect-square ${activeBgSecond} rounded-full`}>
-                        <motion.div
-                            className="h-full aspect-square rounded-full flex justify-center items-center"
-                            custom={activeItem}
-                            variants={circleRotation}
-                            initial="visible"
-                            animate="visible"
-                        >
-                            {/* Images positioned in a circular layout */}
-                            {carousel.map((item, index) => (
+                        {/* Rotating Circle Container */}
+                        <div className='relative'>
+                            <div className={`absolute -bottom-96 -right-96 h-[70vh] rotate-12 aspect-square ${activeBgSecond} rounded-full`}>
                                 <motion.div
-                                    key={item.id}
-                                    className={`absolute aspect-square rounded-full overflow-hidden w-1/2`}
-                                    style={{
-                                        transform: `rotate(-${index * anglePerItem}deg) translate(300px, 100px) rotate(${index * anglePerItem}deg)`, // Shift the layout to the 10:30 position
-                                    }}
+                                    className="h-full aspect-square rounded-full flex justify-center items-center"
+                                    custom={activeItem}
+                                    variants={circleRotation}
+                                    initial="visible"
+                                    animate="visible"
                                 >
-                                    <Image
-                                        src={item.img}
-                                        alt={item.id}
-                                        width={240}
-                                        height={240}
-                                        className="w-full h-full object-cover"
-                                    />
+                                    {/* Images positioned in a circular layout */}
+                                    {carousel.map((item, index) => (
+                                        <motion.div
+                                            key={item.id}
+                                            className={`absolute aspect-square rounded-full overflow-hidden ${index === activeItem && 'w-3/4'}`}
+                                            style={{
+                                                transform: `rotate(${index * anglePerItem}deg) translate(300px, 100px) rotate(${index * anglePerItem}deg)`, // Shift the layout to the 10:30 position
+                                            }}
+                                        >
+                                            <Image
+                                                src={item.img}
+                                                alt={item.id}
+                                                width={240}
+                                                height={240}
+                                                className="w-full h-full object-cover"
+                                            />
+                                        </motion.div>
+                                    ))}
                                 </motion.div>
-                            ))}
-                        </motion.div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div className='w-full h-16'/>
+            <div className='w-full h-16' />
         </section>
     );
 }
