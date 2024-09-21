@@ -46,10 +46,21 @@ export default function Hero() {
         })
     };
 
+    // Function to go to the previous item
+    const handlePrevItem = () => {
+        setActiveItem((prev) => (prev === 0 ? totalItems - 1 : prev - 1));
+    };
+
+    // Function to go to the next item
+    const handleNextItem = () => {
+        setActiveItem((prev) => (prev === totalItems - 1 ? 0 : prev + 1));
+    }
+
     return (
         <section className='w-screen h-screen flex flex-col'>
             <div className={`relative w-full h-full flex flex-grow ${activeBg} rounded-b-2xl overflow-hidden`}>
-                <div className={`absolute -top-[360px] -left-[156.98px] h-[1079px] aspect-square ${activeBgSecond} rounded-full`} />
+                <div className={`absolute -top-[179px] md:-top-[360px] -left-[92.08px] md:-left-[156.98px] h-[437.61px] md:h-[1079px] aspect-square ${activeBgSecond} rounded-full`} />
+                <div className={`md:hidden absolute -bottom-[179px] -right-[92.08px] h-[437.61px] aspect-square ${activeBgSecond} rounded-full`} />
                 <div className="z-10 md:p-10 text-white md:space-y-32">
                     <h2 className="text-[32px] hidden md:block">RESTAURANT</h2>
 
@@ -64,7 +75,9 @@ export default function Hero() {
 
                                 {/* Mini Carousel */}
                                 <div className="mt-4 md:hidden flex w-full items-center justify-center space-x-4">
-                                    <button>left</button>
+                                    <button onClick={handlePrevItem} className='h-[41px] aspect-square rounded-full bg-primary flex items-center justify-center'>
+                                        <img src="/icons/left.png" alt="" />
+                                    </button>
                                     {/* Active Image */}
                                     <div className="mt-6">
                                         <Image
@@ -75,7 +88,9 @@ export default function Hero() {
                                             className="h-[265.86px] aspect-square object-cover mx-auto"
                                         />
                                     </div>
-                                    <button>right</button>
+                                    <button onClick={handleNextItem} className='h-[41px] aspect-square rounded-full bg-primary flex items-center justify-center'>
+                                    <img src="/icons/right.png" alt="" />
+                                    </button>
                                 </div>
 
                                 {/* Buttons to change active item */}
