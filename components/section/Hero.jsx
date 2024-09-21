@@ -32,7 +32,7 @@ export default function Hero() {
             bgSecond: 'bg-variant-3-light'
         },
     ];
-    
+
     const activeBg = carousel[activeItem].bg;
     const activeBgSecond = carousel[activeItem].bgSecond;
     const totalItems = carousel.length;
@@ -41,7 +41,7 @@ export default function Hero() {
     // Rotating the circular layout based on the active item
     const circleRotation = {
         visible: (i) => ({
-            rotate: -i * anglePerItem, // Rotate the circle based on the active index
+            rotate: i * anglePerItem, // Rotate the circle based on the active index
             transition: { duration: 1 },
         })
     };
@@ -79,7 +79,7 @@ export default function Hero() {
                             ))}
                         </div>
                     </div>
-                    
+
                     {/* Rotating Circle Container */}
                     <div className={`absolute -bottom-72 -right-72 h-full aspect-square ${activeBgSecond} rounded-full`}>
                         <motion.div
@@ -93,9 +93,9 @@ export default function Hero() {
                             {carousel.map((item, index) => (
                                 <motion.div
                                     key={item.id}
-                                    className={`absolute aspect-square rounded-full overflow-hidden`}
+                                    className={`absolute aspect-square rounded-full overflow-hidden w-1/2`}
                                     style={{
-                                        transform: `rotate(${index * anglePerItem}deg) translate(200px) rotate(-${index * anglePerItem}deg)`, // Rotate each item and push it outward
+                                        transform: `rotate(-${index * anglePerItem}deg) translate(300px, 100px) rotate(${index * anglePerItem}deg)`, // Shift the layout to the 10:30 position
                                     }}
                                 >
                                     <Image
