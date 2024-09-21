@@ -1,6 +1,7 @@
-import GetStarted from "@/components/section/GetStarted";
 import Hero from "@/components/section/Hero";
+import GetStarted from "@/components/section/GetStarted";
 import WhyChooseUs from "@/components/section/WhyChooseUs";
+import BestSellerDish from "@/components/section/BestSellerDish";
 
 export default function Home() {
     return (
@@ -8,6 +9,7 @@ export default function Home() {
             <Hero/>
             <GetStarted/>
             <WhyChooseUs/>
+            <BestSellerDish/>
         </main>
     );
 }
