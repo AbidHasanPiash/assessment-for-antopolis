@@ -1,4 +1,5 @@
 import React from 'react'
+import GetStartedInfoCard from '@/components/card/GetStartedInfoCard'
 
 export default function GetStarted() {
     const cardData = [
@@ -30,7 +31,7 @@ export default function GetStarted() {
                 </p>
                 <div className='grid grid-cols-2 gap-10'>
                     {cardData?.map((item, index)=>(
-                        <Card key={index} item={item}/>
+                        <GetStartedInfoCard key={index} item={item}/>
                     ))}
                 </div>
             </div>
@@ -57,14 +58,4 @@ export default function GetStarted() {
         </div>
     </section>
   )
-}
-
-export const Card = ({item}) => {
-    return(
-        <div className='shadow-md md:shadow-none space-y-4 p-2 rounded'>
-            <img src={item?.icon} alt={item?.title} className='w-[55px] h-[55px] md:w-[100px] md:h-[100px]'/>
-            <h2 className='text-[10px] md:text-[20px] font-bold'>{item?.title}</h2>
-            <p className='text-[8px] md:text-[17px]'>{item?.description}</p>
-        </div>
-    )
 }
