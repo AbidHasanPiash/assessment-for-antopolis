@@ -50,24 +50,36 @@ export default function Hero() {
         <section className='w-screen h-screen flex flex-col'>
             <div className={`relative w-full h-full flex flex-grow ${activeBg} rounded-b-2xl overflow-hidden`}>
                 <div className={`absolute -top-[360px] -left-[156.98px] h-[1079px] aspect-square ${activeBgSecond} rounded-full`} />
-                <div className="z-10 p-10 text-white space-y-32">
+                <div className="z-10 md:p-10 text-white md:space-y-32">
                     <h2 className="text-[32px] hidden md:block">RESTAURANT</h2>
 
                     <div className='grid md:grid-cols-2'>
                         {/* Controls */}
-                        <div className="z-10 p-10 space-y-20">
+                        <div className="z-10 p-6 md:p-10 md:space-y-20">
                             <div>
                                 <h1 className="text-[45px] md:text-[96px] font-sanchez">BREAKFAST</h1>
                                 <p className='text-[16px] md:text-[20px] font-bold'>
                                     Breakfast, often referred to as the 'most important meal of the day', provides essential nutrients to kick start our day. Eating a healthy breakfast can improve concentration and performance, boost physical endurance, and lower cholesterol levels.
                                 </p>
 
-                                <div>
-                                    <img src={activeItem?.img} alt="" />
+                                {/* Mini Carousel */}
+                                <div className="mt-4 md:hidden flex w-full items-center justify-center space-x-4">
+                                    <button>left</button>
+                                    {/* Active Image */}
+                                    <div className="mt-6">
+                                        <Image
+                                            src={carousel[activeItem].img}
+                                            alt={carousel[activeItem].id}
+                                            width={240}
+                                            height={240}
+                                            className="h-[265.86px] aspect-square object-cover mx-auto"
+                                        />
+                                    </div>
+                                    <button>right</button>
                                 </div>
 
                                 {/* Buttons to change active item */}
-                                <div className="flex space-x-4 mt-6">
+                                <div className="flex items-center justify-center md:items-start md:justify-start space-x-4 mt-6">
                                     {carousel.map((item, index) => (
                                         <button
                                             key={item.id}
@@ -94,7 +106,7 @@ export default function Hero() {
                                     ))}
                                 </div>
                             </div>
-                            <div className='w-full flex items-center space-x-2 bg-white text-black p-2 rounded-full'>
+                            <div className='hidden w-full md:flex items-center space-x-2 bg-white text-black p-2 rounded-full'>
                                 <img src="/icons/icons8-search-192 1.png" alt="search" className='w-8'/>
                                 <input type="search" placeholder='Search...' className='w-full bg-transparent outline-none'/>
                             </div>
