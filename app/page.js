@@ -7,6 +7,7 @@ import Team from "@/components/section/Team";
 import HowItWork from "@/components/section/HowItWork";
 import Blog from "@/components/section/Blog";
 import Client from "@/components/section/Client";
+import Footer from "@/components/section/Footer";
 
 export default function Home() {
     return (
@@ -22,6 +23,7 @@ export default function Home() {
             <HowItWork/>
             <Blog/>
             <Client/>
+            <Footer/>
         </main>
     );
 }
