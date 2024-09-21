@@ -49,16 +49,16 @@ export default function Hero() {
     return (
         <section className='w-screen h-screen flex flex-col'>
             <div className={`relative w-full h-full flex flex-grow ${activeBg} rounded-b-2xl overflow-hidden`}>
-                <div className={`absolute -top-32 -left-40 h-full aspect-square ${activeBgSecond} rounded-full`} />
+                <div className={`absolute -top-[360px] -left-[156.98px] h-[1079px] aspect-square ${activeBgSecond} rounded-full`} />
                 <div className="z-10 p-10 text-white space-y-32">
-                    <h2 className="text-2xl">RESTAURANT</h2>
+                    <h2 className="text-[32px] hidden md:block">RESTAURANT</h2>
 
                     <div className='grid grid-cols-2'>
                         {/* Controls */}
                         <div className="z-10 p-10 space-y-20">
                             <div>
-                                <h1 className="text-6xl">BREAKFAST</h1>
-                                <p className='font-bold'>
+                                <h1 className="text-[45px] md:text-[96px] font-sanchez">BREAKFAST</h1>
+                                <p className='text-[16px] md:text-[20px] font-bold'>
                                     Breakfast, often referred to as the 'most important meal of the day', provides essential nutrients to kick start our day. Eating a healthy breakfast can improve concentration and performance, boost physical endurance, and lower cholesterol levels.
                                 </p>
 
@@ -98,7 +98,7 @@ export default function Hero() {
 
                         {/* Rotating Circle Container */}
                         <div className='relative'>
-                            <div className={`absolute -bottom-96 -right-96 h-[70vh] rotate-12 aspect-square ${activeBgSecond} rounded-full`}>
+                            <div className={`absolute -bottom-96 -right-96 h-[70vh] rotate-[27deg] aspect-square ${activeBgSecond} rounded-full`}>
                                 <motion.div
                                     className="h-full aspect-square rounded-full flex justify-center items-center"
                                     custom={activeItem}
@@ -110,7 +110,7 @@ export default function Hero() {
                                     {carousel.map((item, index) => (
                                         <motion.div
                                             key={item.id}
-                                            className={`absolute aspect-square rounded-full overflow-hidden ${index === activeItem && 'w-3/4'}`}
+                                            className={`absolute aspect-square rounded-full overflow-hidden ${index === activeItem && ''}`}
                                             style={{
                                                 transform: `rotate(${index * anglePerItem}deg) translate(300px, 100px) rotate(${index * anglePerItem}deg)`, // Shift the layout to the 10:30 position
                                             }}

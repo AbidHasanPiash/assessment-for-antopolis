@@ -1,13 +1,19 @@
 import "./globals.css";
+import localFont from "next/font/local";
 import { Inter  } from 'next/font/google'
 import { Miniver } from 'next/font/google';
+import { Sanchez } from 'next/font/google';
 
 const miniver = Miniver({
   weight: '400',
   subsets: ['latin'],
-  variable: '--font-miniver', // Set as CSS variable
+  variable: '--font-miniver',
 });
-import localFont from "next/font/local";
+const sanchez = Sanchez({
+  weight: '400',
+  subsets: ['latin'],
+  variable: '--font-sanchez',
+});
 
 const inter = Inter ({ subsets: ['latin'] })
 // const geistSans = localFont({
@@ -30,7 +36,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${miniver.variable} antialiased overflow-x-hidden overflow-y-auto`}
+        className={`${inter.variable} ${miniver.variable} ${sanchez.variable} antialiased overflow-x-hidden overflow-y-auto`}
       >
         {children}
       </body>

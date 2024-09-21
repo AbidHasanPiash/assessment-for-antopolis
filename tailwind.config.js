@@ -13,6 +13,7 @@ module.exports = {
     extend: {
       fontFamily: {
         miniver: ['var(--font-miniver)'],
+        sanchez: ['var(--font-sanchez)'],
       },
       colors: {
         'primary': "#880808",
