@@ -53,7 +53,7 @@ export default function Hero() {
                 <div className="z-10 p-10 text-white space-y-32">
                     <h2 className="text-[32px] hidden md:block">RESTAURANT</h2>
 
-                    <div className='grid grid-cols-2'>
+                    <div className='grid md:grid-cols-2'>
                         {/* Controls */}
                         <div className="z-10 p-10 space-y-20">
                             <div>
@@ -61,6 +61,10 @@ export default function Hero() {
                                 <p className='text-[16px] md:text-[20px] font-bold'>
                                     Breakfast, often referred to as the 'most important meal of the day', provides essential nutrients to kick start our day. Eating a healthy breakfast can improve concentration and performance, boost physical endurance, and lower cholesterol levels.
                                 </p>
+
+                                <div>
+                                    <img src={activeItem?.img} alt="" />
+                                </div>
 
                                 {/* Buttons to change active item */}
                                 <div className="flex space-x-4 mt-6">
@@ -97,7 +101,7 @@ export default function Hero() {
                         </div>
 
                         {/* Rotating Circle Container */}
-                        <div className='relative'>
+                        <div className='md:relative hidden md:block'>
                             <div className={`absolute -bottom-96 -right-96 h-[70vh] rotate-[27deg] aspect-square ${activeBgSecond} rounded-full`}>
                                 <motion.div
                                     className="h-full aspect-square rounded-full flex justify-center items-center"
