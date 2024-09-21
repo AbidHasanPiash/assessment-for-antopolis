@@ -3,6 +3,7 @@ import GetStarted from "@/components/section/GetStarted";
 import WhyChooseUs from "@/components/section/WhyChooseUs";
 import BestSellerDish from "@/components/section/BestSellerDish";
 import CustomerReview from "@/components/section/CustomerReview";
+import Team from "@/components/section/Team";
 
 export default function Home() {
     return (
@@ -11,7 +12,10 @@ export default function Home() {
             <GetStarted/>
             <WhyChooseUs/>
             <BestSellerDish/>
-            <CustomerReview/>
+            <div>
+                <CustomerReview/>
+                <Team/>
+            </div>
         </main>
     );
 }
