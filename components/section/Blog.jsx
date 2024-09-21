@@ -26,11 +26,13 @@ export default function Blog() {
     ]
   return (
     <section className='max-w-7xl mx-auto px-[15px] space-y-10'>
-        <h1 className='text-center text-[30px] md:text-[61px]'>Latest news & Blog</h1>
-        <p className='text-center text-[14px] md:text-[25px] max-w-2xl mx-auto'>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Varius sed pharetra dictum neque massa congue
-        </p>
+        <div>
+            <h1 className='text-center text-[30px] md:text-[61px]'>Latest news & Blog</h1>
+            <p className='text-center text-[14px] md:text-[16px] max-w-sm mx-auto'>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Varius sed pharetra dictum neque massa congue
+            </p>
+        </div>
         <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
             {cardData.map((item, index)=>(
                 <div key={index} className='rounded-[20px] md:p-[22px] p-[9.56px] space-y-[9.56px] shadow-md'>

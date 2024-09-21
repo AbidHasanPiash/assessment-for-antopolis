@@ -37,7 +37,7 @@ export default function GetStarted() {
             </div>
 
             <div>
-                <div className='text-[18px] flex items-center space-x-2'> <p>About us</p> <p className='w-10 mt-3 h-px bg-primary'/></div>
+                <div className='text-[18px] flex items-center space-x-2 font-miniver text-primary'> <p>About us</p> <p className='w-10 mt-3 h-px bg-primary'/></div>
                 <h1 className='text-[30px] md:text-[48px] font-semibold'>Food is an important part Of a balanced Diet</h1>
                 <p className='text-[14px] md:text-[16px] py-6 text-justify md:text-start'>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque diam 

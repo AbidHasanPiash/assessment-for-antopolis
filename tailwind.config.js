@@ -11,6 +11,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        miniver: ['var(--font-miniver)'],
+      },
       colors: {
         'primary': "#880808",
         'primary-light': "#a52a2a",

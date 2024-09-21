@@ -36,9 +36,9 @@ export default function Footer() {
     ]
   return (
     <footer className='bg-primary text-white'>
-        <div className='max-w-7xl mx-auto px-[15px] py-20 flex flex-col md:flex-row md:flex-wrap justify-between gap-4'>
+        <div className='max-w-7xl mx-auto px-[15px] py-28 flex flex-col md:flex-row md:flex-wrap justify-between gap-4'>
             <div className='space-y-4'>
-                <p className='text-[24px] md:text-[32px]'>RESTAURANT</p>
+                <p className='text-[24px] md:text-[32px] md:uppercase'>Restaurant</p>
                 <p className='text-[18px] md:text-[18px] max-w-xs opacity-90'>Subscribe our newsletter and get discount 25%off</p>
                 <div className='h-[40px] bg-white text-black rounded-md overflow-hidden flex items-center justify-between'>
                     <input type="text" placeholder='Enter Your Email' className='px-2 outline-none bg-transparent'/>

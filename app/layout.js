@@ -1,5 +1,12 @@
 import "./globals.css";
 import { Inter  } from 'next/font/google'
+import { Miniver } from 'next/font/google';
+
+const miniver = Miniver({
+  weight: '400',
+  subsets: ['latin'],
+  variable: '--font-miniver', // Set as CSS variable
+});
 import localFont from "next/font/local";
 
 const inter = Inter ({ subsets: ['latin'] })
@@ -23,7 +30,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} antialiased overflow-x-hidden overflow-y-auto`}
+        className={`${inter.variable} ${miniver.variable} antialiased overflow-x-hidden overflow-y-auto`}
       >
         {children}
       </body>
