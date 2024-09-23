@@ -1,5 +1,8 @@
+'use client'
 import React from 'react'
 import GetStartedInfoCard from '@/components/card/GetStartedInfoCard'
+import { motion } from 'framer-motion'
+import { FadeInFromLeft, FadeInFromRight } from '@/animations/Variants'
 
 export default function GetStarted() {
     const cardData = [
@@ -17,7 +20,12 @@ export default function GetStarted() {
   return (
     <section className='max-w-7xl mx-auto px-[15px]'>
         <div className='flex flex-col-reverse md:grid md:grid-cols-2 md:place-items-center gap-20'>
-            <div className='space-y-4'>
+            <motion.div 
+                variants={FadeInFromLeft}
+                initial="initial"
+                whileInView="animate"
+                viewport={{ once: true }}
+                className='space-y-4'>
                 <h2 className='text-[18px] md:text-[18px] text-primary font-bold'>PIZZA DELIVERY</h2>
                 <h1 className='text-[30px] md:text-[55px] font-bold'>
                     <p>Get Started Today!</p>
@@ -34,9 +42,14 @@ export default function GetStarted() {
                         <GetStartedInfoCard key={index} item={item}/>
                     ))}
                 </div>
-            </div>
+            </motion.div>
 
-            <div>
+            <motion.div
+                variants={FadeInFromRight}
+                initial="initial"
+                whileInView="animate"
+                viewport={{ once: true }}
+                >
                 <div className='text-[18px] flex items-center space-x-2 font-miniver text-primary'> <p>About us</p> <p className='w-10 mt-3 h-px bg-primary'/></div>
                 <h1 className='text-[30px] md:text-[48px] font-semibold'>Food is an important part Of a balanced Diet</h1>
                 <p className='text-[14px] md:text-[16px] py-6 text-justify md:text-start'>
@@ -54,7 +67,7 @@ export default function GetStarted() {
                         <p className='text-[14px] md:text-[16px]'>Watch video </p>
                     </button>
                 </div>
-            </div>
+            </motion.div>
         </div>
     </section>
   )

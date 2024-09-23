@@ -1,5 +1,9 @@
+'use client'
 import React from 'react'
 import WhyChooseUsCard from '../card/WhyChooseUsCard'
+import { motion } from 'framer-motion'
+import { FadeInFromLeft, FadeInFromRight } from '@/animations/Variants'
+import { FadeInFromBottomIndexed } from '@/animations/IndexedVariants'
 
 export default function WhyChooseUs() {
     const cardData = [
@@ -22,14 +26,34 @@ export default function WhyChooseUs() {
   return (
     <section className='max-w-7xl mx-auto px-[15px]'>
         <div className='grid md:grid-cols-2 place-items-center gap-20'>
-            <div>
+            <motion.div
+                variants={FadeInFromLeft}
+                initial="initial"
+                whileInView="animate"
+                viewport={{ once: true }}
+            >
                 <img src="/images/why-choose-us/image 28.png" alt="why-cose-us" className='w-full aspect-square md:w-[578px] md:h-[574px] rounded-[29px] object-cover'/>
-            </div>
+            </motion.div>
             <div className='space-y-[35px]'>
-                <h1 className='text-[30px] md:text-[50px] text-center md:text-start'>Why People Choose us?</h1>
+                <motion.h1 
+                    variants={FadeInFromRight}
+                    initial="initial"
+                    whileInView="animate"
+                    viewport={{ once: true }}
+                    className='text-[30px] md:text-[50px] text-center md:text-start'>
+                    Why People Choose us?
+                </motion.h1>
                 <div className='space-y-[41px]'>
-                    {cardData?.map(item=>(
-                        <WhyChooseUsCard key={item} item={item}/>
+                    {cardData?.map((item, index)=>(
+                        <motion.div
+                            key={item}
+                            variants={FadeInFromBottomIndexed}
+                            initial="initial"
+                            whileInView="animate"
+                            viewport={{ once: true }}
+                            custom={index + 1}>
+                            <WhyChooseUsCard item={item}/>
+                        </motion.div>
                     ))}
                 </div>
             </div>

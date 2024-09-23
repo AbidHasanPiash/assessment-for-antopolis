@@ -1,4 +1,8 @@
-import React from 'react'
+'use client'
+
+import { motion } from 'framer-motion'
+import { FadeInFromBottom } from '@/animations/Variants'
+import { FadeInFromBottomIndexed, FadeInFromLeftIndexed, FadeInFromRightIndexed } from '@/animations/IndexedVariants'
 
 export default function Blog() {
     const cardData = [
@@ -27,15 +31,34 @@ export default function Blog() {
   return (
     <section className='max-w-7xl mx-auto px-[15px] space-y-10'>
         <div>
-            <h1 className='text-center text-[30px] md:text-[61px]'>Latest news & Blog</h1>
-            <p className='text-center text-[14px] md:text-[16px] max-w-sm mx-auto'>
+            <motion.h1 
+                variants={FadeInFromBottom}
+                initial="initial"
+                whileInView="animate"
+                viewport={{ once: true }}
+                className='text-center text-[30px] md:text-[55px]'>
+                Latest news & Blog
+            </motion.h1>
+            <motion.p 
+                variants={FadeInFromBottom}
+                initial="initial"
+                whileInView="animate"
+                viewport={{ once: true }}
+                className='text-center text-[14px] md:text-[18px] opacity-80 max-w-xl mx-auto'>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                 Varius sed pharetra dictum neque massa congue
-            </p>
+            </motion.p>
         </div>
         <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
             {cardData.map((item, index)=>(
-                <div key={index} className='rounded-[20px] md:p-[22px] p-[9.56px] space-y-[9.56px] shadow-md'>
+                <motion.div 
+                    key={index}
+                    variants={FadeInFromBottomIndexed}
+                    initial="initial"
+                    whileInView="animate"
+                    viewport={{ once: true }}
+                    custom={index + 1}
+                    className='rounded-[20px] md:p-[22px] p-[9.56px] space-y-[9.56px] shadow-md'>
                     <img src={item?.img} alt={item?.title} className='w-full h-[239.18px] md:h-[313px] object-cover rounded-[4.58px] md:rounded-[6px] aspect-square'/>
                     <div className='p-2 space-y-[9.56px]'>
                         <div className='flex items-center space-x-4'>
@@ -55,7 +78,7 @@ export default function Blog() {
                             <img src="/icons/ArrowRight.png" alt="arrow" className='h-[15.28px] md:h-[20px]'/>
                         </button>
                     </div>
-                </div>
+                </motion.div>
             ))}
         </div>
     </section>

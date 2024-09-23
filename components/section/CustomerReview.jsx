@@ -1,6 +1,8 @@
 'use client'
 import Image from 'next/image'
 import React, { useState } from 'react'
+import { motion } from 'framer-motion';
+import { FadeInFromBottom, FadeInFromTop } from '@/animations/Variants';
 
 export default function CustomerReview() {
     const [activeIndex, setActiveIndex] = useState(0);
@@ -28,8 +30,13 @@ export default function CustomerReview() {
         setActiveIndex(index); // Change the active review based on the dot clicked
     };
     return (
-        <section className='max-w-7xl mx-auto px-[15px] space-y-[68px] grid md:grid-cols-2 place-items-center'>
-            <div className='space-y-10'>
+        <section className='max-w-7xl mx-auto px-[15px] space-y-[68px] flex flex-col-reverse md:grid md:grid-cols-2 place-items-center'>
+            <motion.div 
+                variants={FadeInFromTop}
+                initial="initial"
+                whileInView="animate"
+                viewport={{ once: true }}
+                className='space-y-10 mb-20'>
                 <h1 className='text-[30px] md:text-[50px] text-center md:text-start'>
                     Customer <span className='text-primary'>Feedback</span>
                 </h1>
@@ -62,14 +69,20 @@ export default function CustomerReview() {
                         </div>
                     </div>
                 </div>
-            </div>
-            <Image
-                src={'/images/customer-review/Chef making ok sign over white background.png'}
-                alt='chef'
-                width={590}
-                height={589}
-                className='w-[342px] h-[341.42px] md:w-[590px] md:h-[589px]'
-            />
+            </motion.div>
+            <motion.div 
+                variants={FadeInFromBottom}
+                initial="initial"
+                whileInView="animate"
+                viewport={{ once: true }}>
+                <Image
+                    src={'/images/customer-review/Chef making ok sign over white background.png'}
+                    alt='chef'
+                    width={590}
+                    height={589}
+                    className='w-[342px] h-[341.42px] md:w-[590px] md:h-[589px] object-cover'
+                />
+            </motion.div>
         </section>
     )
 }
